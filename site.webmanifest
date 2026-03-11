@@ -1,0 +1,28 @@
+{
+  "name": "Forest Fyzioterapie Jindřichův Hradec",
+  "short_name": "Forest Fyzio",
+  "description": "Fyzioterapie, masáže a kraniosakrální terapie v Jindřichově Hradci",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#D96B1F",
+  "lang": "cs",
+  "icons": [
+    {
+      "src": "/favicon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
