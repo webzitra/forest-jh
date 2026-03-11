@@ -624,6 +624,13 @@ h1 em { font-style: normal; color: var(--primary); }
     color: #fff;
     margin-bottom: 24px;
     text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+    font-size: clamp(1.6rem, 4vw, 3rem);
+    line-height: 1.3;
+}
+.hero-fullimg h1 em {
+    color: var(--primary);
+    font-style: normal;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.3);
 }
 .hero-fullimg .hero-perex {
     color: rgba(255,255,255,0.85);
