@@ -151,8 +151,23 @@
     </script>
 
     <link rel="stylesheet" href="css/style.css?v=9">
+    <link rel="stylesheet" href="css/redesign.css?v=1">
 </head>
 <body>
+
+<!-- Scroll progress bar -->
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<!-- Floating sticky CTA -->
+<a href="#" class="floating-cta" id="floatingCta" data-booking aria-label="Objednat termín">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+        <line x1="16" y1="2" x2="16" y2="6"/>
+        <line x1="8" y1="2" x2="8" y2="6"/>
+        <line x1="3" y1="10" x2="21" y2="10"/>
+    </svg>
+    Objednat termín
+</a>
 
 <!-- ═══════════════════════════════════════════════════
      COOKIE BANNER
@@ -218,31 +233,64 @@
     <div class="hero-overlay" aria-hidden="true"></div>
 
     <div class="container hero-content-centered">
-        <span class="pill pill-light">
-            <svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor" aria-hidden="true"><circle cx="4" cy="4" r="4"/></svg>
-            Jindřichův Hradec · Václavská 49
-        </span>
-        <h1><em>Fyzioterapie</em>, <em>kraniosakrální terapie</em>,<br><em>neurovývojová stimulace</em> &amp;&nbsp;<em>masáže</em><br>v&nbsp;Jindřichově Hradci</h1>
-        <p class="hero-perex">
-            Vrátíme vám radost z pohybu. Pracujeme individuálně, s péčí
-            a respektem k vašemu tělu — ať už přicházíte s bolestí,
-            nebo jen za regenerací.
-        </p>
-        <div class="hero-cta">
-            <a href="#" class="btn btn-primary btn-lg" data-booking>
-                Objednat se
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </a>
+
+        <div class="hero-text-col">
+            <span class="pill pill-light">
+                <svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor" aria-hidden="true"><circle cx="4" cy="4" r="4"/></svg>
+                Jindřichův Hradec · Václavská 49
+            </span>
+            <h1>Vrátíme vám <em>radost&nbsp;z&nbsp;pohybu</em></h1>
+            <p class="hero-perex">
+                Fyzioterapie, kraniosakrální terapie, neurovývojová stimulace
+                a masáže — pracujeme individuálně, s&nbsp;péčí a&nbsp;respektem
+                k&nbsp;vašemu tělu.
+            </p>
+            <div class="hero-cta">
+                <a href="#" class="btn btn-primary btn-lg" data-booking>
+                    Objednat termín
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="#sluzby" class="btn-ghost">
+                    Zjistit víc
+                </a>
+            </div>
+            <div class="hero-services" aria-label="Nabízíme">
+                <span class="hero-service-tag">Fyzioterapie</span>
+                <span class="hero-service-tag">Kraniosakrální terapie</span>
+                <span class="hero-service-tag">Neurovývojová stimulace</span>
+                <span class="hero-service-tag">Klasická masáž</span>
+                <span class="hero-service-tag">Vědomá tlaková masáž</span>
+                <span class="hero-service-tag">Ergoterapie</span>
+            </div>
+
+            <div class="hero-trust">
+                <div class="trust-item"><strong>10+</strong><span>let praxe</span></div>
+                <div class="trust-item"><strong>4.9★</strong><span>Google recenze</span></div>
+                <div class="trust-item"><strong>1500+</strong><span>klientů</span></div>
+            </div>
         </div>
-        <div class="hero-services" aria-label="Nabízíme">
-            <span class="hero-service-tag">Fyzioterapie</span>
-            <span class="hero-service-tag">Kraniosakrální terapie</span>
-            <span class="hero-service-tag">Neurovývojová stimulace</span>
-            <span class="hero-service-tag">Klasická masáž</span>
-            <span class="hero-service-tag">Fyzio masáž</span>
-            <span class="hero-service-tag">Vědomá tlaková masáž</span>
-            <span class="hero-service-tag">Ergoterapie</span>
+
+        <div class="hero-visual">
+            <picture>
+                <source srcset="fotky/FyzioAE-125.webp" type="image/webp">
+                <img class="hero-visual-img" src="fotky/FyzioAE-125.jpg" alt="Forest fyzioterapie ordinace v Jindřichově Hradci" loading="eager" fetchpriority="high">
+            </picture>
+
+            <div class="hero-badge-floating hero-badge-1">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M20 6L9 17l-5-5"/>
+                </svg>
+                Bezbariérový přístup
+            </div>
+            <div class="hero-badge-floating hero-badge-2">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="12" cy="12" r="10"/>
+                    <polyline points="12 6 12 12 16 14"/>
+                </svg>
+                Po–Pá 8:00–21:00
+            </div>
         </div>
+
     </div>
 
     <a href="#sluzby" class="hero-scroll" aria-label="Přejít na služby">
@@ -390,6 +438,42 @@
 </section>
 
 <!-- ═══════════════════════════════════════════════════
+     PROCESS TIMELINE — Jak to u nás probíhá
+══════════════════════════════════════════════════════ -->
+<section id="proces" class="process-section">
+    <div class="container">
+        <header class="section-header">
+            <span class="section-tag">Vaše první návštěva</span>
+            <h2>Jak to&nbsp;u&nbsp;nás probíhá</h2>
+            <p>Žádné překvapení — víte, do čeho jdete, a&nbsp;co od&nbsp;první návštěvy očekávat.</p>
+        </header>
+
+        <ol class="process-timeline">
+            <li class="process-step" data-animate>
+                <div class="step-number">01</div>
+                <h3>Online objednání</h3>
+                <p>Vyberete si termín a&nbsp;službu v&nbsp;rezervačním systému — bez&nbsp;čekání na&nbsp;telefonu.</p>
+            </li>
+            <li class="process-step" data-animate>
+                <div class="step-number">02</div>
+                <h3>Vstupní vyšetření</h3>
+                <p>Anamnéza, kineziologický rozbor a&nbsp;vyšetření pohybového aparátu.</p>
+            </li>
+            <li class="process-step" data-animate>
+                <div class="step-number">03</div>
+                <h3>Cílená terapie</h3>
+                <p>Manuální techniky, měkké tkáně a&nbsp;mobilizace — vždy podle vašich potřeb.</p>
+            </li>
+            <li class="process-step" data-animate>
+                <div class="step-number">04</div>
+                <h3>Cvičení domů</h3>
+                <p>Odejdete s&nbsp;konkrétním cvičebním plánem, abyste výsledek udrželi.</p>
+            </li>
+        </ol>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
      TÝM
 ══════════════════════════════════════════════════════ -->
 <section id="tym" class="section section-alt">
@@ -516,7 +600,47 @@
             <p>Žádné skryté poplatky ani překvapení — vždy dopředu víte, co vás čeká.</p>
         </header>
 
-        <div class="pricing-wrap" data-animate>
+        <div class="pricing-cards" data-animate>
+            <div class="pricing-card">
+                <h3>Kraniosakrální terapie</h3>
+                <div class="price">800&nbsp;Kč</div>
+                <div class="duration">55 minut</div>
+                <ul>
+                    <li>Jemná manuální technika</li>
+                    <li>Harmonizace nervového systému</li>
+                    <li>Hluboká relaxace</li>
+                </ul>
+                <a href="#" class="btn-ghost" data-booking>Objednat se</a>
+            </div>
+
+            <div class="pricing-card pricing-card-featured">
+                <span class="featured-badge">Nejčastější volba</span>
+                <h3>Fyzioterapie</h3>
+                <div class="price">800&nbsp;Kč</div>
+                <div class="duration">55 minut</div>
+                <ul>
+                    <li>Vstupní vyšetření &amp; anamnéza</li>
+                    <li>Manuální techniky a&nbsp;mobilizace</li>
+                    <li>Cvičební plán domů</li>
+                </ul>
+                <a href="#" class="btn btn-primary" data-booking>Objednat se</a>
+            </div>
+
+            <div class="pricing-card">
+                <h3>Vědomá tlaková masáž</h3>
+                <div class="price">1&nbsp;000&nbsp;Kč</div>
+                <div class="duration">85 minut</div>
+                <ul>
+                    <li>Hluboká práce s&nbsp;fascií</li>
+                    <li>Reset nervového systému</li>
+                    <li>Komplexní uvolnění</li>
+                </ul>
+                <a href="#" class="btn-ghost" data-booking>Objednat se</a>
+            </div>
+        </div>
+
+        <details class="pricing-extra" data-animate>
+            <summary>Kompletní ceník všech služeb</summary>
             <table class="pricing-table">
                 <thead>
                     <tr>
@@ -526,58 +650,22 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Fyzioterapie</td>
-                        <td class="price-cell">800 Kč</td>
-                        <td class="duration-cell">55 min</td>
-                    </tr>
-                    <tr>
-                        <td>Klasická masáž</td>
-                        <td class="price-cell">800 Kč</td>
-                        <td class="duration-cell">55 min</td>
-                    </tr>
-                    <tr>
-                        <td>Vědomá tlaková masáž</td>
-                        <td class="price-cell">1 000 Kč</td>
-                        <td class="duration-cell">85 min</td>
-                    </tr>
-                    <tr>
-                        <td>Kraniosakrální terapie</td>
-                        <td class="price-cell">800 Kč</td>
-                        <td class="duration-cell">55 min</td>
-                    </tr>
-                    <tr>
-                        <td>Ergoterapie (pro dospělé)</td>
-                        <td class="price-cell">800 Kč</td>
-                        <td class="duration-cell">55 min</td>
-                    </tr>
-                    <tr class="pricing-highlight">
-                        <td>NVS – úvodní setkání s diagnostikou</td>
-                        <td class="price-cell">990 Kč</td>
-                        <td class="duration-cell">85 min</td>
-                    </tr>
-                    <tr>
-                        <td>NVS – další lekce</td>
-                        <td class="price-cell">800 Kč</td>
-                        <td class="duration-cell">55 min</td>
-                    </tr>
-                    <tr>
-                        <td>Baňkování</td>
-                        <td class="price-cell">500 Kč</td>
-                        <td class="duration-cell">25 min</td>
-                    </tr>
-                    <tr>
-                        <td>Tejpování (tejp v&nbsp;ceně)</td>
-                        <td class="price-cell">500 Kč</td>
-                        <td class="duration-cell">25 min</td>
-                    </tr>
+                    <tr><td>Fyzioterapie</td><td class="price-cell">800&nbsp;Kč</td><td class="duration-cell">55&nbsp;min</td></tr>
+                    <tr><td>Klasická masáž</td><td class="price-cell">800&nbsp;Kč</td><td class="duration-cell">55&nbsp;min</td></tr>
+                    <tr><td>Vědomá tlaková masáž</td><td class="price-cell">1&nbsp;000&nbsp;Kč</td><td class="duration-cell">85&nbsp;min</td></tr>
+                    <tr><td>Kraniosakrální terapie</td><td class="price-cell">800&nbsp;Kč</td><td class="duration-cell">55&nbsp;min</td></tr>
+                    <tr><td>Ergoterapie (pro dospělé)</td><td class="price-cell">800&nbsp;Kč</td><td class="duration-cell">55&nbsp;min</td></tr>
+                    <tr class="pricing-highlight"><td>NVS – úvodní setkání s&nbsp;diagnostikou</td><td class="price-cell">990&nbsp;Kč</td><td class="duration-cell">85&nbsp;min</td></tr>
+                    <tr><td>NVS – další lekce</td><td class="price-cell">800&nbsp;Kč</td><td class="duration-cell">55&nbsp;min</td></tr>
+                    <tr><td>Baňkování</td><td class="price-cell">500&nbsp;Kč</td><td class="duration-cell">25&nbsp;min</td></tr>
+                    <tr><td>Tejpování (tejp v&nbsp;ceně)</td><td class="price-cell">500&nbsp;Kč</td><td class="duration-cell">25&nbsp;min</td></tr>
                 </tbody>
             </table>
-        </div>
+        </details>
 
         <p class="pricing-note">
-            Platba kartou, hotově i online.
-            Na poukazy od lékaře nepracujeme — <a href="#informace">více informací</a>.
+            Platba kartou, hotově i&nbsp;online.
+            Na&nbsp;poukazy od&nbsp;lékaře nepracujeme — <a href="#informace">více informací</a>.
         </p>
 
     </div>
@@ -874,5 +962,6 @@
 <div class="nav-overlay" id="nav-overlay" aria-hidden="true"></div>
 
 <script src="js/main.js?v=6" defer></script>
+<script src="js/redesign.js?v=1" defer></script>
 </body>
 </html>
