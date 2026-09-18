@@ -272,6 +272,12 @@ h1 em { font-style: normal; color: var(--primary); }
     line-height: 1.65;
     margin-top: 20px;
 }
+/* Mobil — menší mezery mezi sekcemi (méně scrollování) */
+@media (max-width: 600px) {
+    .section { padding-top: 56px; padding-bottom: 56px; }
+    .section-header { margin-bottom: 40px; }
+    .section-header p { margin-top: 14px; }
+}
 
 /* ─── Focus ──────────────────────────────────────────── */
 :focus-visible {
@@ -496,8 +502,10 @@ h1 em { font-style: normal; color: var(--primary); }
    (8 položek menu potřebuje ~930 px → hamburger až do 960 px) */
 @media (max-width: 960px) {
     .nav       { display: none; }
-    .hamburger { display: flex; }
-    .nav-cta   { display: none; }
+    .header-inner { gap: 10px; }
+    .hamburger { display: flex; margin-left: 0; }
+    /* „Objednat se" zůstává v liště i na mobilu → objednání odkudkoli bez scrollování */
+    .nav-cta   { margin-left: auto; padding: 8px 16px; font-size: 0.85rem; }
 }
 
 /* ─── Mobilní nav drawer ─────────────────────────────
@@ -747,6 +755,23 @@ h1 em { font-style: normal; color: var(--primary); }
     box-shadow: 0 4px 16px rgba(217,107,31,0.2), inset 0 1px 0 rgba(255,255,255,0.12);
     transform: translateY(-1px);
 }
+/* Mobil — štítky v jednom řádku k posunutí prstem (místo ~5 řádků pod sebou) */
+@media (max-width: 600px) {
+    /* flex položka hero jinak roste podle nezalomeného řádku štítků */
+    .hero-content-centered { width: 100%; min-width: 0; }
+    .hero-services {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        scrollbar-width: none;
+        margin-right: -20px;          /* až k okraji displeje */
+        padding-bottom: 4px;
+        -webkit-mask-image: linear-gradient(to right, #000 85%, transparent);
+        mask-image: linear-gradient(to right, #000 85%, transparent);
+    }
+    .hero-services::-webkit-scrollbar { display: none; }
+    .hero-services::after { content: ''; flex: 0 0 40px; }   /* poslední štítek vyjede z přechodu */
+    .hero-service-tag { flex-shrink: 0; white-space: nowrap; }
+}
 
 /* Fallback for non-fullimg hero (keep old styles) */
 .hero-grid {
@@ -903,6 +928,10 @@ h1 em { font-style: normal; color: var(--primary); }
 }
 
 .service-card h3 { margin-bottom: 10px; }
+@media (max-width: 520px) {
+    .service-card { padding: 24px 22px; }
+    .service-icon { width: 46px; height: 46px; margin-bottom: 14px; }
+}
 
 .service-card > p {
     font-size: 0.88rem;
@@ -1095,6 +1124,28 @@ h1 em { font-style: normal; color: var(--primary); }
 .team-email:hover { color: var(--primary-hover); text-decoration: underline; }
 .team-email { font-size: 0.82rem; font-weight: 500; }
 .team-note  { font-size: 0.77rem; color: var(--text-muted); margin: 0; }
+
+/* Mobil — kompaktní karty: fotka vlevo, údaje vpravo (místo 419px fotky přes celou šířku) */
+@media (max-width: 539px) {
+    .team-grid { gap: 14px; }
+    .team-card {
+        display: grid;
+        grid-template-columns: 118px 1fr;
+    }
+    .team-card:hover { transform: none; }
+    .team-photo-wrap {
+        aspect-ratio: auto;
+        min-height: 170px;
+    }
+    .team-photo-wrap::after { display: none; }
+    .team-photo { position: absolute; inset: 0; }
+    .team-info { padding: 16px 14px 16px 16px; min-width: 0; }
+    .team-info h3 { font-size: 1rem; }
+    .team-title { font-size: 0.7rem; margin-bottom: 8px; }
+    .team-services { margin-bottom: 10px; padding-bottom: 10px; }
+    .team-services li { font-size: 0.8rem; padding-block: 1.5px; }
+    .team-email { font-size: 0.76rem; overflow-wrap: anywhere; }
+}
 
 /* ═══════════════════════════════════════════════════════
    CENÍK
@@ -1486,9 +1537,6 @@ h1 em { font-style: normal; color: var(--primary); }
     gap: 28px;
     margin-bottom: 36px;
 }
-@media (max-width: 760px) {
-    .voucher-grid { grid-template-columns: 1fr; }
-}
 
 .voucher-card {
     display: flex;
@@ -1541,10 +1589,6 @@ h1 em { font-style: normal; color: var(--primary); }
     line-height: 1.1;
 }
 .voucher-body .btn { white-space: normal; text-align: center; }
-/* Na úzkém mobilu jen „Objednat poukaz" — odkaz i tak rovnou vytáčí číslo */
-@media (max-width: 420px) {
-    .voucher-btn-phone { display: none; }
-}
 
 .voucher-how {
     max-width: 820px;
@@ -1597,7 +1641,20 @@ h1 em { font-style: normal; color: var(--primary); }
 @media (max-width: 760px) {
     .voucher-steps { grid-template-columns: 1fr; gap: 14px; }
     .voucher-how { padding: 22px 20px; }
-    .voucher-body { padding: 20px; }
+    /* Oba poukazy vedle sebe i na mobilu */
+    .voucher-grid { gap: 12px; margin-bottom: 24px; }
+    .voucher-body { padding: 14px; gap: 12px; }
+    .voucher-head { flex-direction: column; gap: 6px; }
+    .voucher-head h3 { font-size: 0.95rem; margin-bottom: 2px; }
+    .voucher-services { font-size: 0.78rem; }
+    .voucher-price { font-size: 1.3rem; }
+    .voucher-body .btn { padding: 10px 12px; font-size: 0.88rem; gap: 6px; }
+}
+@media (max-width: 960px) {
+    .voucher-btn-phone { display: none; }   /* odkaz i tak rovnou vytáčí číslo */
+}
+@media (max-width: 480px) {
+    .voucher-btn-word { display: none; }    /* jen „Objednat" + ikona telefonu */
 }
 
 /* ═══════════════════════════════════════════════════════
@@ -1714,6 +1771,25 @@ h1 em { font-style: normal; color: var(--primary); }
 }
 .info-link:hover { text-decoration: underline; text-underline-offset: 3px; }
 
+/* Mobil — ikona vedle nadpisu místo nad ním */
+@media (max-width: 640px) {
+    .info-grid { gap: 14px; }
+    .info-card {
+        display: grid;
+        grid-template-columns: 40px 1fr;
+        column-gap: 14px;
+        align-items: center;
+        padding: 20px;
+    }
+    .info-card > * { grid-column: 1 / -1; }
+    .info-card > .info-icon { grid-column: 1; width: 40px; height: 40px; margin: 0; }
+    .info-card > .info-icon svg { width: 20px; height: 20px; }
+    .info-card > h3 { grid-column: 2; margin: 0; }
+    .info-card > p,
+    .info-card > .info-list { margin-top: 12px; }
+    .info-card > .info-link { justify-self: start; }
+}
+
 .info-list { display: flex; flex-direction: column; gap: 10px; }
 .info-list li {
     font-size: 0.87rem;
@@ -1737,7 +1813,7 @@ h1 em { font-style: normal; color: var(--primary); }
 /* Booking CTA — výrazný odkaz na SimplyBook */
 .booking-cta-wrap {
     max-width: 680px;
-    margin: 0 auto clamp(40px, 6vw, 64px);
+    margin: 0 auto 24px;
 }
 .booking-cta {
     display: flex;
@@ -1798,21 +1874,17 @@ h1 em { font-style: normal; color: var(--primary); }
     .booking-cta-arrow { display: none; }
 }
 
-/* Building photo — orientační fotka budovy */
+/* Building photo — malá dlaždice vedle mapy (uvnitř .contact-media) */
 .building-photo-wrap {
-    max-width: 600px;
-    margin: 0 auto 40px;
-    border-radius: var(--radius-xl);
-    overflow: hidden;
-    box-shadow: var(--shadow-md);
-    border: 1px solid var(--border);
     position: relative;
+    margin: 0;
+    overflow: hidden;
+    background: var(--bg-alt);
 }
 .building-photo {
     width: 100%;
-    height: auto;
+    height: 100%;
     display: block;
-    max-height: 400px;
     object-fit: cover;
     object-position: center 40%;
 }
@@ -1821,16 +1893,17 @@ h1 em { font-style: normal; color: var(--primary); }
     bottom: 0;
     left: 0;
     right: 0;
-    padding: 14px 20px;
-    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%);
+    padding: 22px 12px 10px;
+    background: linear-gradient(to top, rgba(0,0,0,0.72) 0%, transparent 100%);
     color: #fff;
-    font-size: 0.9rem;
-    font-weight: 500;
+    font-size: 0.8rem;
+    font-weight: 600;
+    line-height: 1.3;
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
 }
-.building-photo-label svg { opacity: 0.8; flex-shrink: 0; }
+.building-photo-label svg { opacity: 0.85; flex-shrink: 0; }
 
 /* ── Service title links ── */
 .service-title-link {
@@ -1885,11 +1958,10 @@ h1 em { font-style: normal; color: var(--primary); }
     display: none !important;
 }
 
-/* Contact split — info + mapa vedle sebe */
+/* Contact split — údaje | (fotka budovy + mapa vedle sebe) */
 .contact-split {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: clamp(24px, 4vw, 40px);
+    grid-template-columns: minmax(300px, 1fr) 1.45fr;
     background: var(--bg);
     border-radius: var(--radius-xl);
     overflow: hidden;
@@ -1899,20 +1971,30 @@ h1 em { font-style: normal; color: var(--primary); }
 .contact-details {
     display: flex;
     flex-direction: column;
-    gap: 28px;
-    padding: clamp(28px, 4vw, 40px);
+    justify-content: center;
+    gap: 24px;
+    padding: clamp(24px, 4vw, 36px);
+}
+.contact-media {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    min-height: 340px;
 }
 .contact-map-large {
-    min-height: 320px;
+    min-height: 100%;
 }
 .contact-map-large iframe {
     width: 100%;
     height: 100%;
     display: block;
 }
-@media (max-width: 768px) {
+@media (max-width: 860px) {
     .contact-split { grid-template-columns: 1fr; }
-    .contact-map-large { min-height: 250px; }
+    .contact-media {
+        grid-template-columns: 1fr 1fr;   /* fotka a mapa vedle sebe i na mobilu */
+        min-height: 0;
+        height: 210px;
+    }
 }
 
 .contact-info {
@@ -2137,6 +2219,9 @@ h1 em { font-style: normal; color: var(--primary); }
 
 .footer-contact { font-style: normal; }
 .footer-contact p { font-size: 0.87rem; margin-bottom: 8px; }
+@media (max-width: 440px) {
+    .footer-nav ul { display: grid; grid-template-columns: 1fr 1fr; gap: 9px 16px; }
+}
 
 .footer-seo {
     border-top: 1px solid rgba(255,255,255,0.05);
