@@ -879,10 +879,17 @@ h1 em { font-style: normal; color: var(--primary); }
 /* ═══════════════════════════════════════════════════════
    SERVICES
 ═══════════════════════════════════════════════════════ */
+/* Služby vedle sebe: počítač 4 v řadě, tablet 2×2, mobil 2 sloupce */
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(268px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 22px;
+}
+@media (min-width: 1100px) {
+    .services-grid { grid-template-columns: repeat(4, 1fr); gap: 20px; }
+}
+@media (max-width: 359px) {
+    .services-grid { grid-template-columns: 1fr; }
 }
 
 /* Shadow-based service cards s top accent barem */
@@ -928,9 +935,8 @@ h1 em { font-style: normal; color: var(--primary); }
 }
 
 .service-card h3 { margin-bottom: 10px; }
-@media (max-width: 520px) {
-    .service-card { padding: 24px 22px; }
-    .service-icon { width: 46px; height: 46px; margin-bottom: 14px; }
+@media (min-width: 1100px) {
+    .service-card { padding: 28px 24px; }
 }
 
 .service-card > p {
@@ -1012,6 +1018,39 @@ h1 em { font-style: normal; color: var(--primary); }
 .service-pdf-link:hover {
     background: var(--primary-bg);
     border-color: var(--primary);
+}
+
+/* Mobil — 2 úzké sloupce vedle sebe: menší ikona, písmo a odsazení */
+@media (max-width: 640px) {
+    .services-grid { gap: 12px; }
+    .service-card { padding: 16px 14px; border-radius: var(--radius-lg); }
+    .service-card:hover { transform: none; }
+    .service-icon {
+        width: 38px;
+        height: 38px;
+        margin-bottom: 10px;
+        border-radius: 12px;
+    }
+    .service-icon svg { width: 20px; height: 20px; }
+    .service-card h3 { font-size: 0.98rem; margin-bottom: 6px; }
+    .service-sub { margin-top: 10px; }
+    .service-sub h4 { font-size: 0.64rem; letter-spacing: 0.05em; margin-bottom: 4px; }
+    .service-list li {
+        font-size: 0.78rem;
+        line-height: 1.35;
+        padding-left: 11px;
+        padding-block: 2px;
+    }
+    .service-list li::before { width: 4px; height: 4px; top: 0.62em; transform: none; }
+    .service-lead { font-size: 0.78rem; line-height: 1.45; margin-bottom: 8px; }
+    .service-label { font-size: 0.74rem; margin-bottom: 4px; }
+    .service-abbr { font-size: 0.68rem; margin-bottom: 6px; }
+    .service-pdf-link {
+        font-size: 0.74rem;
+        padding: 6px 10px;
+        margin-top: 10px;
+        white-space: normal;
+    }
 }
 
 /* ═══════════════════════════════════════════════════════
@@ -2601,6 +2640,165 @@ h1 em { font-style: normal; color: var(--primary); }
 .price-highlight .price-detail {
     font-size: 0.88rem;
     color: var(--text-muted);
+}
+
+/* ═══════════════════════════════════════════════════════
+   REDESIGN 2026-09 — „Tmavé akcenty"
+   Plovoucí tmavá skleněná lišta, tmavé sekce (.section-dark
+   na #cenik a #poukazy) s oranžovou září, výraznější tlačítka.
+   Jen vzhled — obsah a rozložení stránek beze změn.
+═══════════════════════════════════════════════════════ */
+:root {
+    --header-h: 60px;
+    --glow:        0 6px 22px rgba(217,107,31,0.38);
+    --glow-strong: 0 10px 34px rgba(217,107,31,0.55);
+}
+
+/* ── Plovoucí tmavá skleněná lišta ── */
+.header {
+    top: 10px;
+    left: 12px;
+    right: 12px;
+    max-width: 1240px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: var(--radius-full);
+    border-bottom: 0;
+}
+.header::before {
+    border-radius: inherit;
+    background: rgba(18,12,8,0.80);
+    backdrop-filter: blur(16px) saturate(140%);
+    -webkit-backdrop-filter: blur(16px) saturate(140%);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.10), 0 12px 32px rgba(18,12,8,0.22);
+}
+.header.hero-transparent::before {
+    background: rgba(18,12,8,0.32);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.14);
+}
+.header.scrolled {
+    height: 56px;
+    box-shadow: none;
+}
+.header .container.header-inner {
+    max-width: none;
+    padding-left: 22px;
+    padding-right: 8px;
+}
+.header .logo-img { height: 40px; max-height: 40px; }
+.header .nav-link { color: rgba(255,255,255,0.82); }
+.header .nav-link:hover { color: #fff; background: rgba(255,255,255,0.10); }
+.header .nav-link.active { color: var(--primary-light); background: rgba(217,107,31,0.16); }
+.header .hamburger span { background: #fff; }
+@media (max-width: 960px) {
+    .header { top: 8px; left: 8px; right: 8px; }
+    .header .container.header-inner { padding-left: 16px; padding-right: 12px; }
+}
+
+/* ── Tlačítka se září ── */
+.btn-primary { box-shadow: var(--glow); }
+.btn-primary:hover { box-shadow: var(--glow-strong); }
+
+/* ── Karty na světlých sekcích — jemný oranžový lem při najetí ── */
+.service-card:hover,
+.info-card:hover,
+.ins-card:hover {
+    box-shadow: var(--shadow-md), 0 0 0 1px rgba(217,107,31,0.16), 0 14px 40px rgba(217,107,31,0.10);
+}
+
+/* ── Tmavé sekce ── */
+.section-dark {
+    position: relative;
+    background:
+        radial-gradient(ellipse 65% 50% at 50% 105%, rgba(217,107,31,0.20) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 35% at 8% 0%, rgba(217,107,31,0.08) 0%, transparent 70%),
+        radial-gradient(circle at 1px 1px, rgba(255,255,255,0.035) 1px, transparent 0) 0 0 / 28px 28px,
+        linear-gradient(180deg, #1A120C 0%, #110B07 100%);
+    color: rgba(255,255,255,0.78);
+}
+.section-dark h2,
+.section-dark h3,
+.section-dark h4 { color: #fff; }
+.section-dark .section-header p { color: rgba(255,255,255,0.62); }
+.section-dark .section-tag {
+    background: rgba(217,107,31,0.14);
+    border-color: rgba(217,107,31,0.38);
+    color: var(--primary-light);
+    box-shadow: 0 0 20px rgba(217,107,31,0.18);
+}
+
+/* Ceník na tmavém — skleněná tabulka se svítícími cenami */
+.section-dark .pricing-wrap {
+    background: rgba(255,255,255,0.035);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.09), 0 24px 60px rgba(0,0,0,0.35);
+}
+.section-dark .pricing-table { background: transparent; }
+.section-dark .pricing-table thead { background: rgba(217,107,31,0.12); }
+.section-dark .pricing-table th {
+    color: var(--primary-light);
+    border-bottom-color: rgba(217,107,31,0.28);
+}
+.section-dark .pricing-table td {
+    color: rgba(255,255,255,0.88);
+    border-bottom-color: rgba(255,255,255,0.07);
+}
+.section-dark .pricing-table tbody tr:hover td { background: rgba(255,255,255,0.045); }
+.section-dark .pricing-highlight td { background: rgba(217,107,31,0.12); }
+.section-dark .pricing-table .price-cell {
+    color: #F7A26A;
+    text-shadow: 0 0 18px rgba(240,145,63,0.35);
+}
+.section-dark .pricing-table .duration-cell { color: rgba(255,255,255,0.5); }
+.section-dark .pricing-note { color: rgba(255,255,255,0.55); }
+.section-dark .pricing-note a { color: var(--primary-light); }
+
+/* Poukazy na tmavém — skleněné karty, krémové poukazy vyniknou */
+.section-dark .voucher-card {
+    background: rgba(255,255,255,0.045);
+    border-color: rgba(255,255,255,0.09);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+}
+.section-dark .voucher-card:hover {
+    border-color: rgba(217,107,31,0.45);
+    box-shadow: 0 24px 60px rgba(0,0,0,0.45), 0 0 40px rgba(217,107,31,0.16);
+}
+.section-dark .voucher-img { border-bottom-color: rgba(255,255,255,0.08); }
+.section-dark .voucher-services { color: rgba(255,255,255,0.6); }
+.section-dark .voucher-price {
+    color: #F7A26A;
+    text-shadow: 0 0 18px rgba(240,145,63,0.3);
+}
+.section-dark .voucher-how {
+    background: rgba(255,255,255,0.045);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.09);
+}
+.section-dark .voucher-steps li { color: rgba(255,255,255,0.82); }
+.section-dark .voucher-steps li span {
+    background: rgba(217,107,31,0.16);
+    border-color: rgba(217,107,31,0.4);
+    color: var(--primary-light);
+}
+.section-dark .voucher-note {
+    color: rgba(255,255,255,0.55);
+    border-top-color: rgba(255,255,255,0.1);
+}
+.section-dark .voucher-note svg { color: #7FC49A; }
+
+/* ── Patička — navazuje na tmavé sekce, oranžová linka nahoře ── */
+.footer {
+    position: relative;
+    background:
+        radial-gradient(ellipse 60% 45% at 50% 0%, rgba(217,107,31,0.12) 0%, transparent 70%),
+        #120C08;
+}
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(240,145,63,0.6), transparent);
 }
 
 /* ═══════════════════════════════════════════════════════
