@@ -2786,6 +2786,145 @@ h1 em { font-style: normal; color: var(--primary); }
 }
 .section-dark .voucher-note svg { color: #7FC49A; }
 
+/* ── Hero: fotka + skleněná karta s praktickými údaji ── */
+.hero-fullimg .hero-layout { width: 100%; }
+
+/* Pomalé jemné přiblížení fotky při načtení (jednorázové) */
+.hero-bg-img img {
+    transform-origin: 60% 40%;
+    animation: hero-zoom 22s cubic-bezier(0.2, 0.6, 0.2, 1) both;
+}
+@keyframes hero-zoom {
+    from { transform: scale(1.1); }
+    to   { transform: scale(1); }
+}
+
+.hero-info {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border-radius: 24px;
+    background: rgba(18,12,8,0.40);
+    border: 1px solid rgba(255,255,255,0.16);
+    backdrop-filter: blur(18px) saturate(140%);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
+    box-shadow: 0 24px 60px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.08);
+    animation: hero-card-in 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.25s both;
+}
+@keyframes hero-card-in {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: none; }
+}
+.hero-info-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 13px 14px;
+    border-radius: 16px;
+    color: #fff;
+    text-decoration: none;
+    transition: background var(--ease);
+}
+.hero-info-item + .hero-info-item::before {   /* jemný oddělovač */
+    content: '';
+    position: absolute;
+    top: 0; left: 14px; right: 14px;
+    height: 1px;
+    background: rgba(255,255,255,0.09);
+}
+.hero-info-item::after {                       /* šipka při najetí */
+    content: '→';
+    margin-left: auto;
+    color: var(--primary-light);
+    font-weight: 700;
+    opacity: 0;
+    transform: translateX(-4px);
+    transition: opacity var(--ease), transform var(--ease);
+}
+.hero-info-item:hover { background: rgba(255,255,255,0.08); }
+.hero-info-item:hover::after { opacity: 1; transform: none; }
+.hero-info-icon {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    display: grid;
+    place-items: center;
+    color: #fff;
+    background: linear-gradient(135deg, #E07B2F 0%, #C85A12 100%);
+    box-shadow: 0 4px 14px rgba(217,107,31,0.45);
+}
+.hero-info-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.3;
+    min-width: 0;
+}
+.hero-info-text strong { font-size: 0.95rem; font-weight: 700; }
+.hero-info-text span   { font-size: 0.78rem; color: rgba(255,255,255,0.65); }
+.hero-info-item--gift { display: none; }   /* na počítači je v kartě „Příspěvky" */
+
+/* Počítač — text vlevo, karta vpravo, ztmavení jen pod textem */
+@media (min-width: 1024px) {
+    .hero-fullimg .hero-layout {
+        max-width: var(--container);
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 330px;
+        gap: 56px;
+        align-items: center;
+    }
+    .hero-fullimg .hero-overlay {
+        background:
+            linear-gradient(90deg, rgba(18,12,8,0.90) 0%, rgba(18,12,8,0.72) 36%, rgba(18,12,8,0.28) 68%, rgba(18,12,8,0.14) 100%),
+            linear-gradient(to top, rgba(18,12,8,0.6) 0%, transparent 40%);
+    }
+}
+
+/* Tablet a mobil — karta jako mřížka 2×2 pod tlačítky */
+@media (max-width: 1023px) {
+    .hero-info {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        padding: 0;
+        margin-top: 4px;
+        background: none;
+        border: 0;
+        box-shadow: none;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+    }
+    .hero-info-item {
+        gap: 10px;
+        padding: 10px;
+        border-radius: 14px;
+        background: rgba(18,12,8,0.38);
+        border: 1px solid rgba(255,255,255,0.14);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+    }
+    .hero-info-item + .hero-info-item::before,
+    .hero-info-item::after { display: none; }
+    .hero-info-icon { width: 32px; height: 32px; border-radius: 10px; }
+    .hero-info-icon svg { width: 16px; height: 16px; }
+    .hero-info-text strong { font-size: 0.82rem; }
+    .hero-info-item--insurance { display: none; }   /* tlačítko příspěvků je hned nad kartou */
+    .hero-info-item--gift { display: flex; }
+}
+/* Mobil — jen ikona + nadpis; štítky služeb vynechat (služby jsou v nadpisu) */
+@media (max-width: 600px) {
+    .hero-info-text span { display: none; }
+    .hero-info-text strong { font-size: 0.78rem; line-height: 1.25; }
+    .hero-fullimg .hero-services { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .hero-bg-img img,
+    .hero-info { animation: none; }
+}
+
 /* ── Patička — navazuje na tmavé sekce, oranžová linka nahoře ── */
 .footer {
     position: relative;
