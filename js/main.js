@@ -109,7 +109,7 @@
     });
 
     // Zavřít při resize na desktop
-    window.matchMedia('(min-width: 861px)').addEventListener('change', (e) => {
+    window.matchMedia('(min-width: 961px)').addEventListener('change', (e) => {
         if (e.matches) closeNav();
     });
 })();

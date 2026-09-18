@@ -150,7 +150,7 @@
     }
     </script>
 
-    <link rel="stylesheet" href="css/style.css?v=9">
+    <link rel="stylesheet" href="css/style.css?v=10">
 </head>
 <body>
 
@@ -182,7 +182,9 @@
                 <li><a href="#sluzby"    class="nav-link">Služby</a></li>
                 <li><a href="#tym"       class="nav-link">Tým</a></li>
                 <li><a href="#cenik"     class="nav-link">Ceník</a></li>
+                <li><a href="#prispevky" class="nav-link">Příspěvky pojišťoven</a></li>
                 <li><a href="#galerie"   class="nav-link">Galerie</a></li>
+                <li><a href="#poukazy"   class="nav-link">Poukazy</a></li>
                 <li><a href="#informace" class="nav-link">Informace</a></li>
                 <li><a href="#kontakt"   class="nav-link">Kontakt</a></li>
             </ul>
@@ -232,6 +234,10 @@
             <a href="#" class="btn btn-primary btn-lg" data-booking>
                 Objednat se
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="#prispevky" class="hero-insurance-link">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                Příspěvky zdravotních pojišťoven
             </a>
         </div>
         <div class="hero-services" aria-label="Nabízíme">
@@ -578,7 +584,264 @@
         <p class="pricing-note">
             Platba kartou, hotově i online.
             Na poukazy od lékaře nepracujeme — <a href="#informace">více informací</a>.
+            Část ceny vám ale může proplatit zdravotní pojišťovna — <a href="#prispevky">jak na to</a>.
         </p>
+
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     PŘÍSPĚVKY ZDRAVOTNÍCH POJIŠŤOVEN
+══════════════════════════════════════════════════════ -->
+<section id="prispevky" class="section section-alt">
+    <div class="container">
+
+        <header class="section-header">
+            <span class="section-tag">Příspěvky</span>
+            <h2>Příspěvky zdravotních pojišťoven</h2>
+            <p>Využijte příspěvky na&nbsp;zdraví, které vám mohou vrátit až tisíce korun. Stačí si od&nbsp;nás vzít účtenku.</p>
+        </header>
+
+        <h3 class="ins-subhead">Jak to funguje?</h3>
+
+        <ol class="ins-steps">
+            <li class="ins-step" data-animate>
+                <div class="ins-step-icon" aria-hidden="true">
+                    <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/><path d="m9 16 2 2 4-4"/></svg>
+                    <span class="ins-step-num">1</span>
+                </div>
+                <p>Přijdete na objednanou terapii.</p>
+            </li>
+            <li class="ins-step" data-animate>
+                <div class="ins-step-icon" aria-hidden="true">
+                    <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 2h14v20l-3.5-2-3.5 2-3.5-2L5 22z"/><path d="M9 7h6M9 11h6M9 15h3"/></svg>
+                    <span class="ins-step-num">2</span>
+                </div>
+                <p>Po&nbsp;návštěvě vám vystavíme účtenku.</p>
+            </li>
+            <li class="ins-step" data-animate>
+                <div class="ins-step-icon" aria-hidden="true">
+                    <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
+                    <span class="ins-step-num">3</span>
+                </div>
+                <p>Tu jednoduše odešlete své zdravotní pojišťovně.</p>
+            </li>
+            <li class="ins-step" data-animate>
+                <div class="ins-step-icon" aria-hidden="true">
+                    <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/><path d="M6 12h.01M18 12h.01"/></svg>
+                    <span class="ins-step-num">4</span>
+                </div>
+                <p>Pokud splňujete podmínky jejího preventivního programu, pojišťovna vám příspěvek proplatí.</p>
+            </li>
+        </ol>
+
+        <h3 class="ins-subhead">Přehled programů pojišťoven</h3>
+        <p class="ins-hint">Klikněte na&nbsp;svou pojišťovnu a&nbsp;zobrazí se její programy.</p>
+
+        <div class="ins-grid" data-animate>
+
+            <details class="ins-card">
+                <summary class="ins-card-head">
+                    <span class="ins-code" style="--ins: #D7141A">111</span>
+                    <span class="ins-card-title">
+                        <span class="ins-name">VZP</span>
+                        <span class="ins-fullname">Všeobecná zdravotní pojišťovna</span>
+                    </span>
+                    <span class="ins-count">3 programy</span>
+                    <span class="ins-chevron" aria-hidden="true"></span>
+                </summary>
+                <ul class="ins-programs">
+                    <li class="ins-program">
+                        <div class="ins-program-head">
+                            <h4>Odměna za screening <span class="ins-program-for">dospělí 18+</span></h4>
+                            <span class="ins-amount">až 1&nbsp;000&nbsp;Kč</span>
+                        </div>
+                        <p class="ins-covers"><span>Lze využít na:</span> masáže, fyzioterapie, léčebné procedury</p>
+                        <p class="ins-cond">Podmíněno absolvováním onkoscreeningu v&nbsp;posledních 2&nbsp;letech. Onkoscreening zahrnuje např.: mamografický screening, screening rakoviny prostaty (PSA test), screening kolorektálního karcinomu (test na okultní krvácení / kolonoskopie), cytologické vyšetření děložního čípku a&nbsp;další.</p>
+                    </li>
+                    <li class="ins-program">
+                        <div class="ins-program-head">
+                            <h4>Pravidelný pohyb <span class="ins-program-for">dospělí 18–65</span></h4>
+                            <span class="ins-amount">až 500&nbsp;Kč</span>
+                        </div>
+                        <p class="ins-covers"><span>Lze využít na:</span> cvičení a&nbsp;pohybové aktivity pod vedením fyzioterapeuta</p>
+                        <p class="ins-cond">Žádost pouze na aktivní pohybovou terapii (fyzioterapii).</p>
+                    </li>
+                    <li class="ins-program">
+                        <div class="ins-program-head">
+                            <h4>Těhotné a&nbsp;maminky <span class="ins-program-for">do 6&nbsp;měs. po&nbsp;porodu</span></h4>
+                            <span class="ins-amount">až 5&nbsp;000&nbsp;Kč</span>
+                        </div>
+                        <p class="ins-covers"><span>Lze využít na:</span> těhotenské masáže, těhotenské cvičení</p>
+                        <p class="ins-cond">Částku lze rozdělit do max. 2&nbsp;žádostí za rok. Nutné doložit těhotenský průkaz / rodný list.</p>
+                    </li>
+                </ul>
+            </details>
+
+            <details class="ins-card">
+                <summary class="ins-card-head">
+                    <span class="ins-code" style="--ins: #1B3A7A">201</span>
+                    <span class="ins-card-title">
+                        <span class="ins-name">VoZP</span>
+                        <span class="ins-fullname">Vojenská zdravotní pojišťovna</span>
+                    </span>
+                    <span class="ins-count">2 programy</span>
+                    <span class="ins-chevron" aria-hidden="true"></span>
+                </summary>
+                <ul class="ins-programs">
+                    <li class="ins-program">
+                        <div class="ins-program-head">
+                            <h4>Pohybové aktivity <span class="ins-program-for">dospělí a&nbsp;děti</span></h4>
+                            <span class="ins-amount">500&nbsp;Kč / 1&nbsp;000&nbsp;Kč</span>
+                        </div>
+                        <p class="ins-covers"><span>Lze využít na:</span> zdravotní cvičení, rehabilitační kondiční cvičení</p>
+                        <p class="ins-cond">Lze využít na cvičení s&nbsp;fyzioterapeutem, ale nikoliv na pasivní masáže či wellness.</p>
+                    </li>
+                    <li class="ins-program">
+                        <div class="ins-program-head">
+                            <h4>Dárci krve a&nbsp;kostní dřeně</h4>
+                            <span class="ins-amount">500–6&nbsp;000&nbsp;Kč</span>
+                        </div>
+                        <p class="ins-covers"><span>Lze využít na:</span> masáže, fyzioterapie, regenerace</p>
+                        <p class="ins-cond">Výše příspěvku závisí na získaném ocenění nebo počtu bezplatných odběrů.</p>
+                    </li>
+                </ul>
+            </details>
+
+            <details class="ins-card">
+                <summary class="ins-card-head">
+                    <span class="ins-code" style="--ins: #0063A6">205</span>
+                    <span class="ins-card-title">
+                        <span class="ins-name">ČPZP</span>
+                        <span class="ins-fullname">Česká průmyslová zdravotní pojišťovna</span>
+                    </span>
+                    <span class="ins-count">2 programy</span>
+                    <span class="ins-chevron" aria-hidden="true"></span>
+                </summary>
+                <ul class="ins-programs">
+                    <li class="ins-program">
+                        <div class="ins-program-head">
+                            <h4>Motivační program pro diabetiky</h4>
+                            <span class="ins-amount">až 2&nbsp;000&nbsp;Kč</span>
+                        </div>
+                        <p class="ins-covers"><span>Lze využít na:</span> masáže, regenerační aktivity, cvičení</p>
+                        <p class="ins-cond">Nutné doložení aktuálního HbA1c.</p>
+                    </li>
+                    <li class="ins-program">
+                        <div class="ins-program-head">
+                            <h4>Těhotenství+ a&nbsp;Manažerka mateřství</h4>
+                            <span class="ins-amount">až 3&nbsp;000&nbsp;Kč</span>
+                        </div>
+                        <p class="ins-covers"><span>Lze využít na:</span> masáže těhotných, cvičení</p>
+                        <p class="ins-cond">Sloučený limit z&nbsp;více programů. Nutno doložit těhotenský průkaz.</p>
+                    </li>
+                </ul>
+            </details>
+
+            <details class="ins-card">
+                <summary class="ins-card-head">
+                    <span class="ins-code" style="--ins: #6E2C8C">207</span>
+                    <span class="ins-card-title">
+                        <span class="ins-name">OZP</span>
+                        <span class="ins-fullname">Oborová zdravotní pojišťovna</span>
+                    </span>
+                    <span class="ins-count">1 program</span>
+                    <span class="ins-chevron" aria-hidden="true"></span>
+                </summary>
+                <ul class="ins-programs">
+                    <li class="ins-program">
+                        <div class="ins-program-head">
+                            <h4>Program „Pro volný čas a&nbsp;regeneraci“</h4>
+                            <span class="ins-amount">až 10&nbsp;000&nbsp;Kč</span>
+                        </div>
+                        <p class="ins-covers"><span>Lze využít na:</span> masáže, fyzioterapie</p>
+                        <p class="ins-cond">Čerpá se směnárnou kreditů nasbíraných v&nbsp;aplikaci Vitakarta. Široká akceptace moderních terapií.</p>
+                    </li>
+                </ul>
+            </details>
+
+            <details class="ins-card">
+                <summary class="ins-card-head">
+                    <span class="ins-code" style="--ins: #00843D">209</span>
+                    <span class="ins-card-title">
+                        <span class="ins-name">ZPŠ</span>
+                        <span class="ins-fullname">Zaměstnanecká pojišťovna Škoda</span>
+                    </span>
+                    <span class="ins-count">2 programy</span>
+                    <span class="ins-chevron" aria-hidden="true"></span>
+                </summary>
+                <ul class="ins-programs">
+                    <li class="ins-program">
+                        <div class="ins-program-head">
+                            <h4>Program SPORT <span class="ins-program-for">19–64 let</span></h4>
+                            <span class="ins-amount">500–700&nbsp;Kč</span>
+                        </div>
+                        <p class="ins-covers"><span>Lze využít na:</span> kondiční cvičení, aktivní pohybový trénink</p>
+                        <p class="ins-cond">Žádost pouze na aktivní pohybovou terapii (fyzioterapii).</p>
+                    </li>
+                    <li class="ins-program">
+                        <div class="ins-program-head">
+                            <h4>Dárci krve <span class="ins-program-for">min. 1&nbsp;odběr za 12&nbsp;měs.</span></h4>
+                            <span class="ins-amount">1&nbsp;000–4&nbsp;000&nbsp;Kč</span>
+                        </div>
+                        <p class="ins-covers"><span>Lze využít na:</span> masáže, zdravotní cvičení</p>
+                        <p class="ins-cond">Držitelé vyšších ocenění mají nárok až na 4&nbsp;000&nbsp;Kč.</p>
+                    </li>
+                </ul>
+            </details>
+
+            <details class="ins-card">
+                <summary class="ins-card-head">
+                    <span class="ins-code" style="--ins: #0B8A3E">211</span>
+                    <span class="ins-card-title">
+                        <span class="ins-name">ZPMV</span>
+                        <span class="ins-fullname">Zdravotní pojišťovna ministerstva vnitra</span>
+                    </span>
+                    <span class="ins-count">1 program</span>
+                    <span class="ins-chevron" aria-hidden="true"></span>
+                </summary>
+                <ul class="ins-programs">
+                    <li class="ins-program">
+                        <div class="ins-program-head">
+                            <h4>Odměna za screening a&nbsp;Bezpečnostní sbory</h4>
+                            <span class="ins-amount">500&nbsp;Kč / 1&nbsp;000&nbsp;Kč</span>
+                        </div>
+                        <p class="ins-covers"><span>Lze využít na:</span> ambulantní rehabilitace, fyzioterapie, léčebná masáž</p>
+                        <p class="ins-cond">Podmíněno absolvováním onkoscreeningu v&nbsp;posledních 2&nbsp;letech (např. mamografický screening, screening rakoviny prostaty, screening kolorektálního karcinomu, cytologie děložního čípku a&nbsp;další). Žádost dle pravidel konkrétního programu.</p>
+                    </li>
+                </ul>
+            </details>
+
+            <details class="ins-card">
+                <summary class="ins-card-head">
+                    <span class="ins-code" style="--ins: #0A3D8F">213</span>
+                    <span class="ins-card-title">
+                        <span class="ins-name">RBP</span>
+                        <span class="ins-fullname">RBP, zdravotní pojišťovna</span>
+                    </span>
+                    <span class="ins-count">1 program</span>
+                    <span class="ins-chevron" aria-hidden="true"></span>
+                </summary>
+                <ul class="ins-programs">
+                    <li class="ins-program">
+                        <div class="ins-program-head">
+                            <h4>Program Bonus 90+ <span class="ins-program-for">všichni pojištěnci</span></h4>
+                            <span class="ins-amount">až 1&nbsp;500&nbsp;Kč</span>
+                        </div>
+                        <p class="ins-covers"><span>Lze využít na:</span> masáže, regenerační aktivity</p>
+                        <p class="ins-cond">Pojišťovna hradí vždy max. 50&nbsp;% z&nbsp;ceny účtenky. Nelze využít na služby kosmetické povahy.</p>
+                    </li>
+                </ul>
+            </details>
+
+        </div>
+
+        <div class="ins-note" data-animate>
+            <span class="ins-note-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+            </span>
+            <p>Podmínky a&nbsp;výše příspěvků se u&nbsp;jednotlivých zdravotních pojišťoven liší. <strong>Pro bližší informace kontaktujte svou zdravotní pojišťovnu.</strong></p>
+        </div>
 
     </div>
 </section>
@@ -586,7 +849,7 @@
 <!-- ═══════════════════════════════════════════════════
      GALERIE
 ══════════════════════════════════════════════════════ -->
-<section id="galerie" class="section section-alt">
+<section id="galerie" class="section">
     <div class="container">
 
         <header class="section-header">
@@ -641,6 +904,93 @@
     </div>
 </section>
 
+<!-- ═══════════════════════════════════════════════════
+     DÁRKOVÉ POUKAZY
+     Na webu jen náhled s vodoznakem VZOR — platný poukaz
+     s evidenčním číslem vystavuje studio až po zaplacení.
+══════════════════════════════════════════════════════ -->
+<section id="poukazy" class="section section-alt">
+    <div class="container">
+
+        <header class="section-header">
+            <span class="section-tag">Dárkové poukazy</span>
+            <h2>Darujte péči o&nbsp;tělo</h2>
+            <p>Poukaz na terapii nebo masáž v&nbsp;hodnotě 800&nbsp;Kč — dárek, který potěší tělo i&nbsp;hlavu.</p>
+        </header>
+
+        <div class="voucher-grid">
+
+            <article class="voucher-card" data-animate>
+                <picture>
+                    <source srcset="fotky/poukaz-eliska-vzor.webp" type="image/webp">
+                    <img
+                        src="fotky/poukaz-eliska-vzor.jpg"
+                        alt="Vzor dárkového poukazu na kraniosakrální terapii, masáže a ergoterapii u Bc. Elišky Hojné"
+                        class="voucher-img"
+                        loading="lazy"
+                        width="1000"
+                        height="686"
+                    >
+                </picture>
+                <div class="voucher-body">
+                    <div class="voucher-head">
+                        <div>
+                            <h3>Bc. Eliška Hojná</h3>
+                            <p class="voucher-services">Kraniosakrální terapie · masáže · ergoterapie</p>
+                        </div>
+                        <span class="voucher-price">800&nbsp;Kč</span>
+                    </div>
+                    <a href="tel:+420737981375" class="btn btn-primary btn-full">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.37 2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.9a16 16 0 0 0 6 6l.95-.95a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        Objednat poukaz<span class="voucher-btn-phone"> · 737&nbsp;981&nbsp;375</span>
+                    </a>
+                </div>
+            </article>
+
+            <article class="voucher-card" data-animate>
+                <picture>
+                    <source srcset="fotky/poukaz-adam-vzor.webp" type="image/webp">
+                    <img
+                        src="fotky/poukaz-adam-vzor.jpg"
+                        alt="Vzor dárkového poukazu na fyzioterapii a masáže u Mgr. Adama Krbečka"
+                        class="voucher-img"
+                        loading="lazy"
+                        width="1000"
+                        height="709"
+                    >
+                </picture>
+                <div class="voucher-body">
+                    <div class="voucher-head">
+                        <div>
+                            <h3>Mgr. Adam Krbeček</h3>
+                            <p class="voucher-services">Fyzioterapie · masáže</p>
+                        </div>
+                        <span class="voucher-price">800&nbsp;Kč</span>
+                    </div>
+                    <a href="tel:+420774839093" class="btn btn-primary btn-full">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.37 2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.9a16 16 0 0 0 6 6l.95-.95a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        Objednat poukaz<span class="voucher-btn-phone"> · 774&nbsp;839&nbsp;093</span>
+                    </a>
+                </div>
+            </article>
+
+        </div>
+
+        <div class="voucher-how" data-animate>
+            <h3>Jak poukaz získat</h3>
+            <ol class="voucher-steps">
+                <li><span>1</span>Zavolejte nebo napište SMS terapeutovi, u&nbsp;kterého chcete poukaz darovat.</li>
+                <li><span>2</span>Po&nbsp;zaplacení vám poukaz vystavíme — s&nbsp;jedinečným číslem a&nbsp;datem platnosti.</li>
+                <li><span>3</span>Obdarovaný si domluví termín a&nbsp;poukaz přinese s&nbsp;sebou.</li>
+            </ol>
+            <p class="voucher-note">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                Platné jsou pouze poukazy vystavené naším studiem s&nbsp;evidenčním číslem. Obrázky výše jsou jen vzor.
+            </p>
+        </div>
+
+    </div>
+</section>
 
 <!-- ═══════════════════════════════════════════════════
      DŮLEŽITÉ INFORMACE
@@ -673,10 +1023,11 @@
                 </div>
                 <h3>Příspěvky od pojišťovny</h3>
                 <p>
-                    Doporučujeme se informovat u Vaší zdravotní pojišťovny,
-                    zda nepřispívá na fyzioterapii, masáže nebo zdravotní cvičení
-                    (obdobně jako u dentální hygieny).
+                    Většina zdravotních pojišťoven přispívá na fyzioterapii,
+                    masáže nebo zdravotní cvičení ze svých preventivních programů —
+                    stačí jí poslat účtenku od nás.
                 </p>
+                <a href="#prispevky" class="info-link">Přehled příspěvků podle pojišťoven →</a>
             </div>
 
             <div class="info-card" data-animate>
@@ -824,6 +1175,8 @@
                     <li><a href="#sluzby">Služby</a></li>
                     <li><a href="#tym">Tým</a></li>
                     <li><a href="#cenik">Ceník</a></li>
+                    <li><a href="#prispevky">Příspěvky pojišťoven</a></li>
+                    <li><a href="#poukazy">Dárkové poukazy</a></li>
                     <li><a href="#informace">Informace</a></li>
                     <li><a href="#kontakt">Kontakt</a></li>
                 </ul>
@@ -831,9 +1184,9 @@
 
             <address class="footer-contact">
                 <h3>Kontakt</h3>
-                <p><a href="tel:+420737981375">737 981 375</a></p>
-                <p><a href="tel:+420774839093">774 839 093</a></p>
-                <p><a href="tel:+420737233083">737 233 083</a></p>
+                <p><a href="tel:+420737981375">737 981 375</a> — Eliška Hojná</p>
+                <p><a href="tel:+420774839093">774 839 093</a> — Adam Krbeček</p>
+                <p><a href="tel:+420737233083">737 233 083</a> — Tereza Hojná (NVS)</p>
                 <p>Václavská 49, Jindřichův Hradec</p>
             </address>
 
@@ -865,7 +1218,9 @@
         <li><a href="#sluzby"    class="nav-link m-nav-link">Služby</a></li>
         <li><a href="#tym"       class="nav-link m-nav-link">Tým</a></li>
         <li><a href="#cenik"     class="nav-link m-nav-link">Ceník</a></li>
+        <li><a href="#prispevky" class="nav-link m-nav-link">Příspěvky pojišťoven</a></li>
         <li><a href="#galerie"   class="nav-link m-nav-link">Galerie</a></li>
+        <li><a href="#poukazy"   class="nav-link m-nav-link">Poukazy</a></li>
         <li><a href="#informace" class="nav-link m-nav-link">Informace</a></li>
         <li><a href="#kontakt"   class="nav-link m-nav-link">Kontakt</a></li>
     </ul>
@@ -873,6 +1228,6 @@
 </div>
 <div class="nav-overlay" id="nav-overlay" aria-hidden="true"></div>
 
-<script src="js/main.js?v=6" defer></script>
+<script src="js/main.js?v=7" defer></script>
 </body>
 </html>
