@@ -1594,7 +1594,7 @@ h1 em { font-style: normal; color: var(--primary); }
 .voucher-img {
     width: 100%;
     height: auto;
-    aspect-ratio: 1000 / 700;
+    aspect-ratio: 1000 / 709;
     object-fit: cover;
     object-position: top;
     border-bottom: 1px solid var(--border);
@@ -2775,6 +2775,14 @@ h1 em { font-style: normal; color: var(--primary); }
     box-shadow: inset 0 0 0 1px rgba(255,255,255,0.09);
 }
 .section-dark .voucher-steps li { color: rgba(255,255,255,0.82); }
+.section-dark .voucher-steps a,
+.voucher-steps a {
+    color: var(--primary-light);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+.voucher-steps a:hover { color: #fff; }
 .section-dark .voucher-steps li span {
     background: rgba(217,107,31,0.16);
     border-color: rgba(217,107,31,0.4);
