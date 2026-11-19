@@ -2994,6 +2994,89 @@ h1 em { font-style: normal; color: var(--primary); }
 }
 
 /* ═══════════════════════════════════════════════════════
+   ANIMACE 2026-11 (podle zásad Emila Kowalského)
+   Vstupy ease-out, jen transform + opacity, krátké časy,
+   žádný pohyb u cen a dat. Omezený pohyb respektován.
+═══════════════════════════════════════════════════════ */
+:root {
+    --ease-out:    cubic-bezier(0.23, 1, 0.32, 1);
+    --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+/* 1) Objevování při scrollu — měkčí křivka, kratší dráha */
+[data-animate] {
+    transform: translateY(18px);
+    transition: opacity 700ms var(--ease-out), transform 700ms var(--ease-out);
+}
+
+/* 2) Vstup hero (hlavní stránka i podstránky) — prvky postupně, jen při načtení */
+@keyframes enter-up {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: none; }
+}
+.hero-main > *,
+.subpage-hero .container > * {
+    animation: enter-up 700ms var(--ease-out) both;
+}
+.hero-main > :nth-child(1), .subpage-hero .container > :nth-child(1) { animation-delay: 60ms; }
+.hero-main > :nth-child(2), .subpage-hero .container > :nth-child(2) { animation-delay: 130ms; }
+.hero-main > :nth-child(3), .subpage-hero .container > :nth-child(3) { animation-delay: 210ms; }
+.hero-main > :nth-child(4), .subpage-hero .container > :nth-child(4) { animation-delay: 280ms; }
+.hero-main > :nth-child(5), .subpage-hero .container > :nth-child(5) { animation-delay: 360ms; }
+.hero-info { animation: hero-card-in 800ms var(--ease-out) 420ms both; }
+/* Šipka dolů jen pár pohybů, ne donekonečna */
+.hero-scroll { animation-iteration-count: 3; animation-delay: 1.4s; }
+
+/* 3) Rozbalení pojišťovny — plynulá výška (kde to prohlížeč umí, jinak se otevře hned)
+      Pozn.: headless Chrome s --virtual-time-budget nekreslí snímky a ukáže kartu
+      jako neotevřenou — testovat ve skutečném čase (CDP), tam funguje. */
+@supports (interpolate-size: allow-keywords) {
+    .ins-card { interpolate-size: allow-keywords; }
+    .ins-card::details-content {
+        block-size: 0;
+        overflow: clip;
+        transition: block-size 320ms var(--ease-out), content-visibility 320ms allow-discrete;
+    }
+    .ins-card[open]::details-content { block-size: auto; }
+}
+
+/* 4) Karty — zvednutí s ease-out místo obecné křivky */
+.service-card, .team-card, .voucher-card, .info-card, .related-card, .ins-card {
+    transition-timing-function: var(--ease-out);
+}
+.hero-info-item  { transition: background var(--ease), transform 160ms var(--ease-out); }
+.service-pdf-link { transition: background var(--ease-fast), border-color var(--ease-fast), transform 160ms var(--ease-out); }
+
+/* 5) Na dotykových zařízeních bez zvedání — po klepnutí by karta „zamrzla" nahoře */
+@media (hover: none), (pointer: coarse) {
+    .service-card:hover, .team-card:hover, .voucher-card:hover, .info-card:hover,
+    .related-card:hover, .booking-cta:hover, .hero-insurance-link:hover, .back-to-top:hover,
+    .btn-primary:hover, .btn-outline:hover, .btn-white:hover, .gallery-item:hover { transform: none; }
+    .team-card:hover .team-photo, .gallery-item:hover img { transform: none; }
+}
+
+/* 6) Odezva na stisk — rychlé zmáčknutí (větší plochy jemněji) */
+:is(.btn, .hero-insurance-link, .service-pdf-link, .back-to-top):active {
+    transform: scale(0.97);
+    transition-duration: 100ms;
+}
+:is(.hero-info-item, .booking-cta, .related-card):active {
+    transform: scale(0.985);
+    transition-duration: 100ms;
+}
+
+/* 7) Mobilní menu — křivka zásuvky */
+.m-nav { transition: transform 320ms var(--ease-drawer), visibility 320ms; }
+
+/* Omezený pohyb: bez posunů, obsah hned vidět */
+@media (prefers-reduced-motion: reduce) {
+    .hero-main > *, .subpage-hero .container > *, .hero-info, .hero-scroll { animation: none; }
+    [data-animate] { opacity: 1; transform: none; transition: none; }
+    .ins-card::details-content { transition: none; }
+    :is(.btn, .hero-insurance-link, .service-pdf-link, .back-to-top, .hero-info-item, .booking-cta, .related-card):active { transform: none; }
+}
+
+/* ═══════════════════════════════════════════════════════
    PRINT
 ═══════════════════════════════════════════════════════ */
 @media print {

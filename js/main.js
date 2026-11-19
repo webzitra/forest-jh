@@ -173,7 +173,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
     // Respektuj prefers-reduced-motion
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        elements.forEach(el => el.classList.add('animated'));
+        elements.forEach(el => el.removeAttribute('data-animate'));
         return;
     }
 
@@ -187,7 +187,16 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             const idx = siblings.indexOf(entry.target);
             const delay = Math.min(idx * 80, 400); // max 400ms
 
-            setTimeout(() => entry.target.classList.add('animated'), delay);
+            const el = entry.target;
+            setTimeout(() => {
+                el.classList.add('animated');
+                // Po doběhnutí odstranit stav objevení — prvek se vrátí ke svým
+                // vlastním přechodům (jinak by přebíjel např. zvednutí karty při hoveru)
+                setTimeout(() => {
+                    el.removeAttribute('data-animate');
+                    el.classList.remove('animated');
+                }, 800);
+            }, delay);
             observer.unobserve(entry.target);
         });
     }, {
